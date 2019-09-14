@@ -1,0 +1,14 @@
+# pint-refprop
+This python module provides unit support using amazing [[https://pint.readthedocs.io/en/latest/][Pint]] package for /old style/ [[https://github.com/BenThelen/python-refprop][python-refprop]] wrapper
+* Requirements
+  - [[https://github.com/hgrecco/pint][Pint]] python module
+  - Ben Thelen's [[https://github.com/BenThelen/python-refprop][python-refprop]] module
+    - not to be confused with newer and maintained [[https://github.com/usnistgov/REFPROP-wrappers/tree/master/wrappers/python][ctypes REFPROP wrapper]]
+* Example
+  #+begin_src python
+    >>> import pint_refprop as pr
+    >>> fluid = 'Air'
+    >>> props = pr.setup('def', fluid) #TODO implement wrapper for setup function
+    >>> props.['M']
+    #TODO Add output
+  #+end_src
