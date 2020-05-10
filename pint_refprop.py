@@ -180,6 +180,9 @@ def rp_unitize(*names):
     return rp_decorate
 
 
+def setup(hrf, *hfld, hfmix='HMX.BNC'):
+    return rp.setup(hrf, *hfld, hfmix)
+
 @rp_unitize('p', 'x', 'kph')
 def satp(p, x, kph=2):
     return rp.satp(p, x, kph)
