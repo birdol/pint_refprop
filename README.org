@@ -6,9 +6,9 @@ This python module provides unit support using amazing [[https://pint.readthedoc
     - not to be confused with newer and maintained [[https://github.com/usnistgov/REFPROP-wrappers/tree/master/wrappers/python][ctypes REFPROP wrapper]]
 * Example
   #+begin_src python
-    >>> import pint_refprop as pr
+    >>> from pint_refprop import pint_refprop as pr
     >>> fluid = 'Air'
-    >>> props = pr.setup('def', fluid) #TODO implement wrapper for setup function
-    >>> props.['M']
-    #TODO Add output
+    >>> props = pr.setup('def', fluid)
+    >>> print(props)
+    {'x': [0.7812, 0.0092, 0.2096], 'hmxnme': 'AIR', 'hrf': 'DEF', 'nc': 3, 'hfld': ['NITROGEN', 'ARGON', 'OXYGEN'], 'hfmix': 'HMX.BNC'}
   #+end_src

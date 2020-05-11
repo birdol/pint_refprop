@@ -1,20 +1,13 @@
 # Refprop package uses dimensionless values for its functions. A series of wrapper functions are used to allow for units seamless integration.
 from pint import UnitRegistry
-import logging
-import logging.config
-import os
 from pyrefprop import refprop as rp
 from functools import wraps
 
 
-# Setting up logging
-__location__ = os.path.dirname(os.path.abspath(__file__))
-logging.config.fileConfig(os.path.join(__location__, 'logging.ini'))
-logger = logging.getLogger(__name__)
-
 # Configuring units package:
 ureg = UnitRegistry(autoconvert_offset_to_baseunit=True)
 Q_ = ureg.Quantity
+ureg.define('debye = 10**-18 statC*cm = D')
 
 
 # Dictionary defining units used by refprop package
@@ -180,8 +173,11 @@ def rp_unitize(*names):
     return rp_decorate
 
 
-def setup(hrf, *hfld, hfmix='HMX.BNC'):
-    return rp.setup(hrf, *hfld, hfmix)
+def setup(hrf, *hfld):
+    """
+
+    Custom binary mixture models (hfmix) are currently not supported."""
+    return rp.setup(hrf, *hfld)
 
 @rp_unitize('p', 'x', 'kph')
 def satp(p, x, kph=2):
